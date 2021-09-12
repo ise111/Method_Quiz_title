@@ -1,0 +1,179 @@
+@import "styles/mixin";
+
+body {
+    margin: 0;
+}
+a {
+    text-decoration: none;
+}
+ul {
+    padding: 0;
+}
+#global-container {
+    position: relative;
+    width: 100vw;
+    & > img.landscape {
+        width: 100%;
+    }
+    & > img.man {
+        display: block;
+        position: absolute;
+        width: auto;
+        height: 35%;
+        top: 22%;
+        left: 15%;
+        z-index: 2;
+        transform: scale(-1, 1);
+        object-fit: cover;
+        opacity: 0.6;
+        @include animation(
+            $name: man-move,
+            $duration: 3s,
+            $iteration-count: 1,
+            $timing-function: cubic-bezier(0.4, 1.01, 0.51, 0.74)
+        );
+    }
+    & #title {
+        display: block;
+        position: absolute;
+        width: 50vw;
+        top: 50%;
+        left: 50%;
+        z-index: 2;
+        transform: translate(-10%, -75%);
+        & .main-title {
+            text-align: right;
+            font-family: 'Cinzel Decorative', cursive;
+            font-size: 75px;
+            margin-bottom: 0;
+            @include animation(
+                $name: mt-move,
+                $duration: 1.5s,
+                $delay: 2.6s,
+                $iteration-count: 1,
+                $fill-mode: both,
+                $timing-function: linear
+            );
+        }
+        & .sub-title {
+            text-align: right;
+            font-size: 50px;
+            margin-top: 0;
+            font-family: 'Rancho', cursive;
+            @include animation(
+                $name: mt-move,
+                $duration: 1.5s,
+                $delay: 3.3s,
+                $iteration-count: 1,
+                $fill-mode: both,
+                $timing-function: linear
+            );
+        }
+        & #main-menu {
+                font-family: 'Alumni Sans', sans-serif;
+                font-size: 40px;
+                list-style: none;
+                text-align: center;
+                & > ul {
+                    & .test-menu {
+                        cursor: pointer;
+                        @include animation(
+                            $name: mt-move,
+                            $duration: 1.5s,
+                            $delay: 3.5s,
+                            $iteration-count: 1,
+                            $fill-mode: both,
+                            $timing-function: linear
+                        );
+                    }
+                    & .training-menu {
+                        cursor: pointer;
+                        @include animation(
+                            $name: mt-move,
+                            $duration: 1.5s,
+                            $delay: 3.7s,
+                            $iteration-count: 1,
+                            $fill-mode: both,
+                            $timing-function: linear
+                        );
+                        &.move {
+                            visibility: hidden !important;
+                        }
+                    }
+                    & > li {
+                        list-style: none;
+                        color: black;
+                        & a {
+                            color: white;
+                            margin-right: 20px;
+                        }    
+                    }
+                }
+        }
+    }
+    .footer {
+        position: absolute;
+        display: block;
+        bottom: 20px;
+        width: 100vw;
+        height: 30px;
+        text-align: right;
+        & > a {
+            color: white;
+        }
+    }
+}
+
+.test-sub-menu {
+    position: absolute;
+    display: inline-block;
+    width: 100%;
+    left: 0;
+    visibility: hidden;
+    &.sub-menu-open {
+        visibility: visible;
+    }
+}
+
+.training-sub-menu {
+    position: absolute;
+    display: inline-block;
+    width: 100%;
+    left: 0;
+    visibility: hidden;
+    &.sub-menu-open {
+        visibility: visible;
+    }
+}
+
+@keyframes man-move {
+    0% {
+        transform: translateY(150%);
+        opacity: 0;
+    }100% {
+        transform: translateY(0);
+    }
+}
+@keyframes mt-move {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;    
+    }50% {
+        transform: translateX(-20%);
+        opacity: 0;
+    }80% {
+        transform: translateX(-5%);
+        opacity: 0.5;
+    }100% {
+        transform: translateX(0);
+    }
+}
+@media (max-width: 960px) {
+    @import "styles/breakpoints/title_960down.scss";
+}
+@media (max-width: 600px) {
+    @import "styles/breakpoints/title_600down.scss";
+}
+@media (max-width: 450px) {
+    @import "styles/breakpoints/title_450down.scss";
+}

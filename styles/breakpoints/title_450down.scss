@@ -1,0 +1,30 @@
+body {
+    overflow-x: hidden !important;
+}
+img.landscape {
+    width: 450px !important;
+    height: 800px;
+    object-fit: cover;
+    object-position: 10% 0;
+    }
+img.man {
+    left: 30% !important;
+}
+#title {
+    width: 100vw !important;
+    left: 20% !important;
+}
+.main-title {
+    font-size: 40px !important;
+    text-align: center !important;
+}
+.sub-title {
+    font-size: 30px !important;
+    text-align: center !important;
+}
+.move {
+    visibility: hidden;
+}
+#main-menu {
+    transform: translateY(175%);
+}
